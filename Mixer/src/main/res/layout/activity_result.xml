@@ -1,0 +1,18 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#e3e3e3">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/Frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="30dp"
+            android:background="#e3e3e3">
+        </LinearLayout>
+
+</ScrollView>

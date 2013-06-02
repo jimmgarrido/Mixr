@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
+    android:background="#e3e3e3"
+    android:clickable="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#e3e3e3">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/nowCardStyle"
+            android:paddingBottom="9dp">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/taste_title"
+                android:id="@+id/taste_text"
+                android:layout_gravity="left"
+                android:textSize="31dp"
+                style="@style/textLight"
+                android:textStyle="bold"
+                android:background="#0099CC"
+                android:textColor="#FFFFFF"
+                android:paddingLeft="10dp"
+                android:paddingBottom="3dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Find A Drink That Is"
+                android:id="@+id/taste_info"
+                android:layout_gravity="left|top"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="21sp"
+                style="@style/textLight"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:id="@+id/linearLayout"
+                android:layout_gravity="left"
+                android:layout_marginTop="80dp"
+                android:layout_marginLeft="20dp">
+
+                <Spinner
+                    android:id="@+id/spinner_taste1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".3"
+                    android:spinnerMode="dialog"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/and_text"
+                    android:id="@+id/and_text"
+                    android:textSize="19sp"
+                    android:layout_weight=".4"
+                    android:textIsSelectable="false"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    style="@style/textLight"
+                    android:visibility="invisible"/>
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_taste2"
+                    android:layout_weight=".3"
+                    android:visibility="invisible"/>
+            </LinearLayout>
+
+            <TextView
+                style="@style/textLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="And Has"
+                android:id="@id/taste_info"
+                android:layout_gravity="left|top"
+                android:layout_marginTop="135dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="21sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:id="@+id/linearLayout2"
+                android:layout_gravity="left"
+                android:layout_marginTop="160dp"
+                android:layout_marginLeft="20dp">
+
+                <Spinner
+                    android:id="@+id/spinner_alc1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".3"
+                    android:spinnerMode="dialog"
+                    />
+
+                <TextView
+                    style="@style/textLight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/and_text"
+                    android:id="@+id/and_text2"
+                    android:textSize="20sp"
+                    android:layout_weight=".4"
+                    android:textIsSelectable="false"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:visibility="invisible"/>
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner_alc2"
+                    android:layout_weight=".3"
+                    android:visibility="invisible"/>
+            </LinearLayout>
+
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/imageButton"
+                android:layout_gravity="left|top"
+                android:adjustViewBounds="false"
+                android:src="@drawable/send"
+                android:background="#80FFFFFF"
+                android:scaleType="fitXY"
+                android:layout_marginTop="213dp"
+                android:layout_marginLeft="285dp"
+                android:focusableInTouchMode="true"
+                android:clickable="true"
+                android:onClick="buttonClicked"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            style="@style/nowCardStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="9dp"
+            android:id="@+id/frameLayout">
+
+            <TextView
+                style="@style/textLight"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ingredient_title"
+                android:id="@+id/textView"
+                android:layout_gravity="left"
+                android:textSize="31dp"
+                android:textStyle="bold"
+                android:background="#9933CC"
+                android:textColor="#FFFFFF"
+                android:paddingLeft="10dp"
+                android:paddingBottom="3dp"/>
+
+            <TextView
+                style="@style/textLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Find A Drink That Is"
+                android:id="@+id/textView2"
+                android:layout_gravity="left|top"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="22sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="3"
+                android:id="@+id/linearLayout3"
+                android:layout_gravity="left"
+                android:layout_marginTop="80dp"
+                android:layout_marginLeft="20dp">
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:spinnerMode="dialog"/>
+
+                <TextView
+                    style="@style/textLight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/and_text"
+                    android:id="@+id/textView3"
+                    android:textSize="20sp"
+                    android:layout_weight="1"
+                    android:textIsSelectable="false"
+                    android:gravity="center"
+                    android:textStyle="bold"/>
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner2"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <TextView
+                style="@style/textLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="And Has"
+                android:id="@+id/textView4"
+                android:layout_gravity="left|top"
+                android:layout_marginTop="135dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="22sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="3"
+                android:id="@+id/linearLayout4"
+                android:layout_gravity="left"
+                android:layout_marginTop="160dp"
+                android:layout_marginLeft="20dp">
+
+                <Spinner
+                    android:id="@+id/spinner3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:spinnerMode="dialog"
+                    android:textAlignment="viewStart"/>
+
+                <TextView
+                    style="@style/textLight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/and_text"
+                    android:id="@+id/textView5"
+                    android:textSize="20sp"
+                    android:layout_weight="1"
+                    android:textIsSelectable="false"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:visibility="invisible"/>
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner4"
+                    android:layout_weight="1"
+                    android:visibility="invisible"/>
+            </LinearLayout>
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageButton2"
+                android:layout_gravity="left|top"
+                android:adjustViewBounds="false"
+                android:src="@drawable/send"
+                android:background="#80FFFFFF"
+                android:scaleType="fitXY"
+                android:layout_marginTop="215dp"
+                android:layout_marginLeft="285dp"
+                android:focusableInTouchMode="true"
+                android:clickable="true"
+                android:onClick="buttonClicked"/>
+        </FrameLayout>
+    </LinearLayout>
+</ScrollView>

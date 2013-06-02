@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Mixer</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="alcohol_type">
+        <item>Any</item>
+        <item>Absinthe</item>
+        <item>Brandy</item>
+        <item>Cachaça</item>
+        <item>Campari</item>
+        <item>Champagne</item>
+        <item>Cognac</item>
+        <item>Gin</item>
+        <item>Liqueur</item>
+        <item>Maraschino</item>
+        <item>Prosecco</item>
+        <item>Rum</item>
+        <item>Schnapps</item>
+        <item>Tequila</item>
+        <item>Triple Sec</item>
+        <item>Vermouth</item>
+        <item>Whiskey</item>
+        <item>Vodka</item>
+    </string-array>
+    <string-array name="taste_type">
+        <item>Any</item>
+        <item>Citrusy</item>
+        <item>Sweet</item>
+        <item>Sour</item>
+    </string-array>
+
+    <string name="btn_find_drink">Find Me A Drink</string>
+    <string name="title_activity_drink_result">DrinkResult</string>
+    <string name="title_activity_main_activity6y">MainActivity6y</string>
+    <string name="taste_title">By Taste</string>
+    <string name="ingredient_title">By Ingredient</string>
+    <string name="fragment_random_title">By Fate</string>
+    <string name="title_activity_taste_fragment">TasteFragment</string>
+    <string name="find_taste_prompt">Find a drink that tastes</string>
+    <string name="next_drink">Next Drink</string>
+    <string name="another_drink">Make Another Taste</string>
+    <string name="view_more">View Entire Recipe</string>
+    <string name="result_text">You should get a "</string>
+    <string name="and_text">and</string>
+</resources>
