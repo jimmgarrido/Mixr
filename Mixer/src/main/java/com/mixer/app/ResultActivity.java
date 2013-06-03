@@ -102,32 +102,32 @@ public class ResultActivity extends Activity {
         LinearLayout layout = (LinearLayout)findViewById(R.id.Frame);
         ImageView drinkPic;
         TextView drinkName, line1, line2, line3, line4, line5;
-       
+       View view;
        
 
 
         if (numResults > 0) {
 
             do {
-				View view = inflater.inflate(R.layout.card_style, null);
+				view = inflater.inflate(R.layout.card_style, null);
 				drinkPic = (ImageView)view.findViewById(R.id.drinkPic);
 				drinkName = (TextView)view.findViewById(R.id.drinkName);
                 String line1Text="", line2Text="", line3Text="", line4Text="", line5Text="";
                 position = i;
-                dbResult.moveToPosition(position);
+                dbResult.moveToPosition(i);
 
 
 
                 line1 = (TextView)view.findViewById(R.id.textView);
-                line1.setVisibility(View.INVISIBLE);
+                line1.setVisibility(View.GONE);
                 line2 = (TextView)view.findViewById(R.id.textView2);
-                line2.setVisibility(View.INVISIBLE);
+                line2.setVisibility(View.GONE);
                 line3 = (TextView)view.findViewById(R.id.textView3);
-                line3.setVisibility(View.INVISIBLE);
+                line3.setVisibility(View.GONE);
                 line4 = (TextView)view.findViewById(R.id.textView4);
-                line4.setVisibility(View.INVISIBLE);
+                line4.setVisibility(View.GONE);
                 line5 = (TextView)view.findViewById(R.id.textView5);
-                line5.setVisibility(View.INVISIBLE);
+                line5.setVisibility(View.GONE);
 
                 id = getResources().getIdentifier("com.mixer.app:drawable/" + dbResult.getString(1).toLowerCase().replaceAll("\\s",""), null, null);
                 drinkPic.setImageResource(id);
@@ -169,15 +169,15 @@ public class ResultActivity extends Activity {
                     line2.setVisibility(View.VISIBLE);
                     line2.setText(line2Text);
                 }
-                if (line2Text.equals("") !=true){
+                if (line3Text.equals("") !=true){
                     line3.setVisibility(View.VISIBLE);
                     line3.setText(line3Text);
                 }
-                if (line2Text.equals("") !=true){
+                if (line4Text.equals("") !=true){
                     line4.setVisibility(View.VISIBLE);
                     line4.setText(line4Text);
                 }
-                if (line2Text.equals("") !=true){
+                if (line5Text.equals("") !=true){
                     line5.setVisibility(View.VISIBLE);
                     line5.setText(line5Text);
                 }

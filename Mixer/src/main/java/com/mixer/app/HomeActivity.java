@@ -141,8 +141,8 @@ public class HomeActivity extends Activity {
     public void populateSpinner (int kind) {
         switch (kind) {
             case 1:
-                ArrayAdapter<CharSequence> tasteList = ArrayAdapter.createFromResource(this, R.array.taste_type, android.R.layout.simple_spinner_item);
-                tasteList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                ArrayAdapter<CharSequence> tasteList = ArrayAdapter.createFromResource(this, R.array.taste_type, R.layout.spinner_item);
+                //tasteList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 taste1.setAdapter(tasteList);
                 //taste2.setAdapter(tasteList);
                 break;
