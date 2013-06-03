@@ -102,14 +102,16 @@ public class ResultActivity extends Activity {
         LinearLayout layout = (LinearLayout)findViewById(R.id.Frame);
         ImageView drinkPic;
         TextView drinkName, line1, line2, line3, line4, line5;
-        View view = inflater.inflate(R.layout.card_style, null);
-        drinkPic = (ImageView)view.findViewById(R.id.drinkPic);
-        drinkName = (TextView)view.findViewById(R.id.drinkName);
+       
+       
 
 
         if (numResults > 0) {
 
             do {
+				View view = inflater.inflate(R.layout.card_style, null);
+				drinkPic = (ImageView)view.findViewById(R.id.drinkPic);
+				drinkName = (TextView)view.findViewById(R.id.drinkName);
                 String line1Text="", line2Text="", line3Text="", line4Text="", line5Text="";
                 position = i;
                 dbResult.moveToPosition(position);

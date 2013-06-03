@@ -102,9 +102,7 @@ public class HomeActivity extends Activity {
 
                 pos = taste1.getSelectedItemPosition();
                 List<String> items = new ArrayList<String>(Arrays.asList(view.getContext().getResources().getStringArray(R.array.taste_type)));
-                items.add(1,"None");
-                items.remove(pos+1);
-                items.remove(0);
+                items.add(0,"None");
 
                 ArrayAdapter<String> list = new ArrayAdapter<String>(view.getContext(), R.layout.spinner_item,items);
                 list.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
