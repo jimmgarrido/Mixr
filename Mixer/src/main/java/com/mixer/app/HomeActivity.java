@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.SQLException;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.*;
 
@@ -19,7 +18,7 @@ public class HomeActivity extends Activity {
     public static final String SELECTION2="com.mixer.app.SELECTION2";
     public static final String SELECTION3="com.mixer.app.SELECTION3";
     public static final String SELECTION4="com.mixer.app.SELECTION4";
-    Spinner taste1, taste2, alc1, alc2;
+    Spinner taste1, taste2, alc1, alc2, alc3, ingred1;
     String selection1="", selection2="", selection3="", selection4="";
 
     @Override
@@ -29,7 +28,7 @@ public class HomeActivity extends Activity {
 
         DataBaseHelper myDbHelper = new DataBaseHelper(this);
 
-        try {
+       try {
             myDbHelper.createDataBase();
         } catch (IOException ioe) {
             throw new Error("Unable to create database");
@@ -42,14 +41,15 @@ public class HomeActivity extends Activity {
         }
         myDbHelper.close();
 
-        taste1 = (Spinner) findViewById(R.id.spinner_taste1);
+        taste1 = (Spinner)findViewById(R.id.spinner_taste1);
         alc1 = (Spinner)findViewById(R.id.spinner_alc1);
-        populateSpinner(1);
-        populateSpinner(2);
-        addListenerToSpinner();
+        ingred1 = (Spinner)findViewById(R.id.spinner_ingred1);
+        alc3 = (Spinner)findViewById(R.id.spinner_alc3);
+        populateSpinners();
+        addListenerToSpinners();
     }
 
-    private void addListenerToSpinner() {
+    private void addListenerToSpinners() {
 
         alc1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -138,22 +138,20 @@ public class HomeActivity extends Activity {
 
     }
 
-    public void populateSpinner (int kind) {
-        switch (kind) {
-            case 1:
-                ArrayAdapter<CharSequence> tasteList = ArrayAdapter.createFromResource(this, R.array.taste_type, R.layout.spinner_item);
-                //tasteList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                taste1.setAdapter(tasteList);
-                //taste2.setAdapter(tasteList);
-                break;
-            case 2:
-                ArrayAdapter<CharSequence> alcList = ArrayAdapter.createFromResource(this, R.array.alcohol_type, R.layout.spinner_item);
-                //alcList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                alc1.setAdapter(alcList);
-                break;
-            default:
-                break;
-        }
+    public void populateSpinners() {
+
+        ArrayAdapter<CharSequence> tasteList = ArrayAdapter.createFromResource(this, R.array.taste_type, R.layout.spinner_item);
+        tasteList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        taste1.setAdapter(tasteList);
+
+        ArrayAdapter<CharSequence> alcList = ArrayAdapter.createFromResource(this, R.array.alcohol_type, R.layout.spinner_item);
+        alcList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        alc1.setAdapter(alcList);
+        alc3.setAdapter(alcList);
+
+        tasteList = ArrayAdapter.createFromResource(this, R.array.taste_type, R.layout.spinner_item);
+        tasteList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ingred1.setAdapter(tasteList);
 
     }
 }

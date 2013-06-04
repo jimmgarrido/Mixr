@@ -10,15 +10,17 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
         >
 
         <FrameLayout
-            android:layout_width="match_parent"
+            android:layout_width="450dp"
             android:layout_height="wrap_content"
             style="@style/nowCardStyle"
-            android:paddingBottom="9dp">
+            android:paddingBottom="9dp"
+            android:layout_gravity="center|top">
 
             <TextView
                 android:layout_width="fill_parent"
@@ -135,13 +137,12 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:id="@+id/imageButton"
-                android:layout_gravity="left|top"
+                android:layout_gravity="right|top"
                 android:adjustViewBounds="false"
                 android:src="@drawable/send"
                 android:background="#80FFFFFF"
                 android:scaleType="fitXY"
                 android:layout_marginTop="213dp"
-                android:layout_marginLeft="285dp"
                 android:focusableInTouchMode="true"
                 android:clickable="true"
                 android:onClick="buttonClicked"/>
@@ -150,10 +151,11 @@
 
         <FrameLayout
             style="@style/nowCardStyle"
-            android:layout_width="match_parent"
+            android:layout_width="450dp"
             android:layout_height="wrap_content"
             android:paddingBottom="9dp"
-            android:id="@+id/frameLayout">
+            android:id="@+id/frameLayout"
+            android:layout_gravity="center">
 
             <TextView
                 android:layout_width="fill_parent"
@@ -265,13 +267,12 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:id="@+id/imageButton2"
-                android:layout_gravity="left|top"
+                android:layout_gravity="right|top"
                 android:adjustViewBounds="false"
                 android:src="@drawable/send"
                 android:background="#80FFFFFF"
                 android:scaleType="fitXY"
                 android:layout_marginTop="215dp"
-                android:layout_marginLeft="285dp"
                 android:focusableInTouchMode="true"
                 android:clickable="true"
                 android:onClick="buttonClicked"/>

@@ -9,6 +9,7 @@
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:id="@+id/Frame">
+        android:id="@+id/Frame"
+        android:layout_gravity="center|top" >
     </LinearLayout>
 </ScrollView>

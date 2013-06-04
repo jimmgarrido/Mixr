@@ -1,14 +1,14 @@
 package com.mixer.app;
 
 import android.app.Activity;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.LayoutInflater;
+import android.view.*;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,6 +30,11 @@ public class ResultActivity extends Activity {
     private SQLiteDatabase drinksDb;
     private Cursor dbResult;
     private int numResults, position, numTimes=0;
+    TextView drinkName, line1, line2, line3, line4, line5;
+    String line1Text, line2Text, line3Text, line4Text, line5Text;
+    View view;
+    Bitmap pic;
+
 
 
     @Override
@@ -56,6 +61,9 @@ public class ResultActivity extends Activity {
 
     protected void onStop() {
         drinkHelper.close();
+        if(pic != null) {
+            pic.recycle();
+        }
         super.onStop();
     }
 
@@ -101,65 +109,31 @@ public class ResultActivity extends Activity {
         LayoutInflater inflater = LayoutInflater.from(this);
         LinearLayout layout = (LinearLayout)findViewById(R.id.Frame);
         ImageView drinkPic;
-        TextView drinkName, line1, line2, line3, line4, line5;
-       View view;
-       
+        int picHeight;
 
+        //Bitmap pic;
 
         if (numResults > 0) {
 
             do {
-				view = inflater.inflate(R.layout.card_style, null);
-				drinkPic = (ImageView)view.findViewById(R.id.drinkPic);
-				drinkName = (TextView)view.findViewById(R.id.drinkName);
-                String line1Text="", line2Text="", line3Text="", line4Text="", line5Text="";
+
+                view = inflater.inflate(R.layout.card_style, null);
+                drinkPic = (ImageView)view.findViewById(R.id.drinkPic);
+                drinkName = (TextView)view.findViewById(R.id.drinkName);
                 position = i;
                 dbResult.moveToPosition(i);
 
-
-
-                line1 = (TextView)view.findViewById(R.id.textView);
-                line1.setVisibility(View.GONE);
-                line2 = (TextView)view.findViewById(R.id.textView2);
-                line2.setVisibility(View.GONE);
-                line3 = (TextView)view.findViewById(R.id.textView3);
-                line3.setVisibility(View.GONE);
-                line4 = (TextView)view.findViewById(R.id.textView4);
-                line4.setVisibility(View.GONE);
-                line5 = (TextView)view.findViewById(R.id.textView5);
-                line5.setVisibility(View.GONE);
-
                 id = getResources().getIdentifier("com.mixer.app:drawable/" + dbResult.getString(1).toLowerCase().replaceAll("\\s",""), null, null);
-                drinkPic.setImageResource(id);
-                drinkName.setText(dbResult.getString(1));
 
-                for ( int j=3; j<16;j++) {
-                    if (j>=3 && j<=5){
-                        if(dbResult.isNull(j) == false) {
-                            line1Text = line1Text + dbResult.getString(j) + " ";
-                        }
-                    }
-                    if (j>=6 && j<=8){
-                        if(dbResult.isNull(j) == false) {
-                            line2Text = line2Text + dbResult.getString(j) + " ";
-                        }
-                    }
-                    if (j>=9 && j<=11){
-                        if(dbResult.isNull(j) == false) {
-                            line3Text = line3Text + dbResult.getString(j) + " ";
-                        }
-                    }
-                    if (j>=12 && j<=14){
-                        if(dbResult.isNull(j) == false) {
-                            line4Text = line4Text + dbResult.getString(j) + " ";
-                        }
-                    }
-                    if (j==15){
-                        if(dbResult.isNull(j) == false) {
-                            line5Text = dbResult.getString(j);
-                        }
-                    }
-                }
+                pic = decodeSampledBitmapFromResource(getResources(),id, 200, 160);
+                //getImage();
+
+                //drinkPic.setImageResource(id);
+                drinkName.setText(dbResult.getString(1));
+                drinkPic.setImageBitmap(pic);
+
+                resetText();
+                setText();
 
                 if (line1Text.equals("") !=true) {
                     line1.setVisibility(View.VISIBLE);
@@ -201,5 +175,90 @@ public class ResultActivity extends Activity {
             number = (int) (Math.round(Math.random() *limit));
         } while (number < 0 || number >= limit);
         return number;
+    }
+
+    public void setText() {
+        for ( int j=3; j<16;j++) {
+            if (j>=3 && j<=5){
+                if(dbResult.isNull(j) == false) {
+                    line1Text = line1Text + dbResult.getString(j) + " ";
+                }
+            }
+            if (j>=6 && j<=8){
+                if(dbResult.isNull(j) == false) {
+                    line2Text = line2Text + dbResult.getString(j) + " ";
+                }
+            }
+            if (j>=9 && j<=11){
+                if(dbResult.isNull(j) == false) {
+                    line3Text = line3Text + dbResult.getString(j) + " ";
+                }
+            }
+            if (j>=12 && j<=14){
+                if(dbResult.isNull(j) == false) {
+                    line4Text = line4Text + dbResult.getString(j) + " ";
+                }
+            }
+            if (j==15){
+                if(dbResult.isNull(j) == false) {
+                    line5Text = dbResult.getString(j);
+                }
+            }
+        }
+    }
+
+    public void resetText() {
+        line1Text="";
+        line2Text="";
+        line3Text="";
+        line4Text="";
+        line5Text="";
+
+        line1 = (TextView)view.findViewById(R.id.textView);
+        line1.setVisibility(View.GONE);
+        line2 = (TextView)view.findViewById(R.id.textView2);
+        line2.setVisibility(View.GONE);
+        line3 = (TextView)view.findViewById(R.id.textView3);
+        line3.setVisibility(View.GONE);
+        line4 = (TextView)view.findViewById(R.id.textView4);
+        line4.setVisibility(View.GONE);
+        line5 = (TextView)view.findViewById(R.id.textView5);
+        line5.setVisibility(View.GONE);
+    }
+
+    public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId, int reqWidth, int reqHeight) {
+
+        // First decode with inJustDecodeBounds=true to check dimensions
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeResource(res, resId, options);
+
+        // Calculate inSampleSize
+        options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
+
+        // Decode bitmap with inSampleSize set
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeResource(res, resId, options);
+    }
+
+    public static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
+        // Raw height and width of image
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        int inSampleSize = 8;
+
+        if (height > reqHeight || width > reqWidth) {
+
+            // Calculate ratios of height and width to requested height and width
+            final int heightRatio = Math.round((float) height / (float) reqHeight);
+            final int widthRatio = Math.round((float) width / (float) reqWidth);
+
+            // Choose the smallest ratio as inSampleSize value, this will guarantee
+            // a final image with both dimensions larger than or equal to the
+            // requested height and width.
+            inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
+        }
+
+        return inSampleSize;
     }
 }
